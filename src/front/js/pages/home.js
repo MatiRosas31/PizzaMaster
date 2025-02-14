@@ -4,11 +4,9 @@ import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 
 export const Home = () => {
-    const { store, actions } = useContext(Context);
-
     return (
         <div className="background-image text-center mt-5">
-            
+            <h1>Test</h1>
         </div>
     );
 };
