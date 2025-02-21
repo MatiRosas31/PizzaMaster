@@ -2,22 +2,22 @@
     General Styles used on every website (Don't Repeat Yourself)
 */
 body {
-    background-image: url('https://i.postimg.cc/yYXGc311/top-side-view-of-a-pizza-with-a-wood-table-background-more-staff-laying-around-the-pizza-and-more.jpg'); /* Ajusta la ruta si es necesario */
-    background-size: cover;
-    background-position: center;
-    height: 100vh; /* Ajusta según sea necesario */
-    width: 100%; /* Ajusta según sea necesario */
-    position: relative; /* Asegura que el contenido esté dentro del contenedor */
-    margin: 0;
+  background-image: url("https://i.postimg.cc/yYXGc311/top-side-view-of-a-pizza-with-a-wood-table-background-more-staff-laying-around-the-pizza-and-more.jpg"); /* Ajusta la ruta si es necesario */
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh; /* Asegura que el body cubra al menos la altura de la ventana */
+  width: 100%; /* Ajusta según sea necesario */
+  position: relative; /* Asegura que el contenido esté dentro del contenedor */
+  margin: 0;
 }
 
 body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6); /* Color negro semitransparente */
-    z-index: -1; /* Envía la superposición detrás del contenido */
+  content: "";
+  position: fixed; /* Cambia a fixed para que cubra toda la página */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -100px; /* Asegura que la superposición cubra toda la altura de la página */
+  background-color: rgba(0, 0, 0, 0.6); /* Color negro semitransparente */
+  z-index: -1; /* Envía la superposición detrás del contenido */
 }

@@ -1,0 +1,52 @@
+{
+  "pizzas": [
+    {
+      "ID": 1,
+      "title": "Pepperoni Pizza",
+      "description": "Delicious pepperoni pizza with extra cheese.",
+      "thumbnail": "https://example.com/pepperoni.jpg",
+      "price": 12.99,
+      "ingredients": ["Pepperoni", "Queso extra", "Tomate"]
+    },
+    {
+      "ID": 2,
+      "title": "Hawaiian Pizza",
+      "description": "A classic Hawaiian pizza with ham and pineapple.",
+      "thumbnail": "https://example.com/hawaiian.jpg",
+      "price": 11.99,
+      "ingredients": ["Jamón", "Piña", "Queso extra"]
+    },
+    {
+      "ID": 3,
+      "title": "Vegetarian Pizza",
+      "description": "A healthy vegetarian pizza loaded with fresh vegetables.",
+      "thumbnail": "https://example.com/vegetarian.jpg",
+      "price": 10.99,
+      "ingredients": ["Champiñones", "Aceitunas", "Pimientos", "Cebolla", "Tomate", "Espinaca"]
+    },
+    {
+      "ID": 4,
+      "title": "Meat Lovers Pizza",
+      "description": "A pizza for meat lovers with a variety of meats.",
+      "thumbnail": "https://example.com/meatlovers.jpg",
+      "price": 14.99,
+      "ingredients": ["Salchicha", "Tocino", "Pollo", "Carne molida", "Queso extra"]
+    },
+    {
+      "ID": 5,
+      "title": "Seafood Pizza",
+      "description": "A unique pizza with a mix of seafood ingredients.",
+      "thumbnail": "https://example.com/seafood.jpg",
+      "price": 15.99,
+      "ingredients": ["Atún", "Aceitunas", "Tomate", "Queso extra"]
+    },
+    {
+      "ID": 6,
+      "title": "Spicy Jalapeño Pizza",
+      "description": "A spicy pizza with jalapeños and other fresh ingredients.",
+      "thumbnail": "https://example.com/jalapeno.jpg",
+      "price": 12.99,
+      "ingredients": ["Jalapeños", "Pimientos", "Cebolla", "Tomate", "Queso extra"]
+    }
+  ]
+}

@@ -7,29 +7,56 @@
 */
 
 #root {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: black;
-    color: white;
-  }
-  
-  .wrapper {
-    flex: 1;
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: black;
+  color: white;
+}
 
-  .orangebtn {
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 5px;
-    background-color: #ff4500;
-    color: white;
-    cursor: pointer;
-    transition: 0.3s;
+.wrapper {
+  flex: 1;
+}
+
+.orangebtn {
+  border: none;
+  background-color: #ff4500;
+  color: white;
+}
+
+.search-container {
+  width: 40%; /* Ajusta el ancho según sea necesario */
 }
 
 .search-bar {
-    width: 40%;
-    text-align: center;
+  width: 100%; /* Asegura que la barra de búsqueda ocupe todo el ancho del contenedor */
+}
+
+.list-group {
+  width: 100%; /* Asegura que la lista ocupe todo el ancho del contenedor */
+}
+
+.list-group-item {
+  width: 100%; /* Asegura que los elementos de la lista ocupen todo el ancho del contenedor */
+}
+
+.CustomWidth {
+  width: 40%;
+}
+
+.white-bg-color-opacity-faded {
+  background-color: white(0, 0, 0);
+  opacity: 0.8;
+}
+
+/* Estilos para el grid layout de las pizzas */
+.pizza-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.pizza-card {
+  width: 100%;
 }
