@@ -3,10 +3,12 @@ import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import SearchResults from "../component/SearchResults";
 import OrderModal from "../component/OrderModal";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
   const [searchValue, setSearchValue] = useState("");
   const { store, actions } = useContext(Context);
+  const navigate = useNavigate();
 
   const clearSearch = () => {
     setSearchValue("");
@@ -36,19 +38,15 @@ export const Home = () => {
             hecha especialmente para ti
           </p>
         </div>
-        <div
-          id="SearchbarBtnsContainer"
-          className="container text-center"
-          onDoubleClick={ClearClick}
-        >
+        <div>
           {store.selectedIngredients.length > 0 ? (
-            <h5 className="text-light fw-bolder">
+            <h5 className="text-light fw-bolder text-center">
               Ingredientes seleccionados:
             </h5>
           ) : null}
           {store.selectedIngredients.length > 0
             ? store.selectedIngredients.map((ingredient, index) => (
-                <span key={index} className="badge orangebtn me-2 mb-2">
+                <span key={index} className="badge orangebtn my-1 mx-1">
                   {ingredient}
                   <button
                     className="btn-close ms-1"
@@ -57,7 +55,13 @@ export const Home = () => {
                 </span>
               ))
             : null}
-          <div className="search-container mx-auto">
+        </div>
+        <div
+          id="SearchbarBtnsContainer"
+          className="container text-center row"
+          onDoubleClick={ClearClick}
+        >
+          <div className="search-container mx-auto col-12 col-md-6 col-lg-4">
             <div className="input-group mb-3">
               <input
                 type="text"
@@ -82,12 +86,20 @@ export const Home = () => {
               Cancelar
             </button>
             <button
-              className="btn btn-success ms-1"
+              className="btn btn-success ms-1 btn-wobble fw-bolder"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
             >
               Ordenar
             </button>
+            <div>
+              <button
+                className="btn btn-custom mt-3 "
+                onClick={() => navigate("/allpizzas")}
+              >
+                Muéstrame opciones
+              </button>
+            </div>
           </div>
         </div>
       </div>

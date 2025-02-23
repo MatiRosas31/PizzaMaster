@@ -6,7 +6,6 @@ const SearchResults = ({ searchValue }) => {
   const { store, actions } = useContext(Context);
   const { ingredients } = store;
 
-  console.log(ingredients);
   return (
     <div className="mx-auto mb-2">
       <ul className="list-group">

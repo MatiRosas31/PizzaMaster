@@ -1,17 +1,78 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
+  const { store, actions } = useContext(Context);
+
   return (
     <nav className="navbar bg-black text-light my-auto">
       <div className="container">
         <Link to="/">
-          <span className="navbar-brand mb-0 h1">React Boilerplate</span>
+          <img
+            src="https://i.postimg.cc/Y01NWKtJ/logo-for-a-pizza-website-with-green-red-yellow-and-black-colors.jpg"
+            alt="Logo"
+            className="navbar-logo"
+          />
         </Link>
-        <div className="ml-auto">
-          <Link to="/demo">
-            <button className="orangebtn">Check the Context in action</button>
-          </Link>
+        <div className="ml-auto d-flex align-items-center">
+          <div className="dropdown">
+            <button
+              className="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Shopping Cart ({store.ShoppingCart.length})
+            </button>
+            <ul
+              className="dropdown-menu dropdown-menu-end"
+              aria-labelledby="dropdownMenuButton"
+            >
+              {store.ShoppingCart.length > 0 ? (
+                store.ShoppingCart.map((item, index) => (
+                  <li
+                    key={index}
+                    className="dropdown-item d-flex justify-content-between"
+                  >
+                    <span className="fw-bold mt-2">{item[0].title}</span>
+                    <div>
+                      <button className="btn btn-dark mx-1 fw-bolder">
+                        x{item.length}
+                      </button>
+                      <button
+                        className="btn btn-outline-danger"
+                        onClick={() => actions.removeFromCart(item[0].ID)}
+                      >
+                        X
+                      </button>
+                    </div>
+                  </li>
+                ))
+              ) : (
+                <li className="dropdown-item">No items in cart</li>
+              )}
+              <li>
+                <hr className="dropdown-divider" />
+              </li>
+              <li className="dropdown-item d-flex justify-content-between">
+                <span className="fw-bold">
+                  Total: $
+                  {store.ShoppingCart.reduce(
+                    (acc, item) => acc + item[0].price * item.length,
+                    0
+                  )}
+                </span>
+                <Link
+                  to="/order"
+                  className="btn btn-danger ms-1 btn-sm btn-pulse"
+                >
+                  Order
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
