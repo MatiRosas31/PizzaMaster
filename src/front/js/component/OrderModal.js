@@ -96,7 +96,7 @@ const OrderModal = () => {
               </span>
             )}
           </div>
-          <div className="modal-body">
+          <div id="PizzaSize" className="modal-body">
             <h5 className="fw-bolder">Tamaño de la pizza 📏</h5>
             <div className="form-check">
               <input
@@ -138,46 +138,63 @@ const OrderModal = () => {
               </label>
             </div>
           </div>
-          <div className="modal-body">
+          <div id="Drinks" className="modal-body">
             <h5 className="fw-bolder">¿Qué tal algo para beber? 🥤</h5>
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="drink"
-                value="coke"
-                checked={formData.drink === "coke"}
-                onChange={handleChange}
-              />
-              <label className="form-check-label" htmlFor="coke">
-                Coca Cola
-              </label>
-            </div>
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="drink"
-                value="sprite"
-                checked={formData.drink === "sprite"}
-                onChange={handleChange}
-              />
-              <label className="form-check-label" htmlFor="sprite">
-                Sprite
-              </label>
-            </div>
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="drink"
-                value="fanta"
-                checked={formData.drink === "fanta"}
-                onChange={handleChange}
-              />
-              <label className="form-check-label" htmlFor="fanta">
-                Fanta
-              </label>
+            <div className="d-flex">
+              <div className="d-flex flex-column me-3 text-center align-items-center">
+                <img
+                  src="https://pedidosya.dhmedia.io/image/product-information-management/6749c0ee4c1f8c15d50dbb1c.jpg?webp=1&dpi=1.5"
+                  alt="Coca Cola"
+                  className="drink-image mb-2"
+                />
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="drink"
+                  value="coke"
+                  checked={formData.drink === "coke"}
+                  onChange={handleChange}
+                />
+                <label className="form-check-label" htmlFor="coke">
+                  Coca-Cola
+                </label>
+              </div>
+              <div className="d-flex flex-column text-center align-items-center">
+                <img
+                  src="https://pedidosya.dhmedia.io/image/product-information-management/6749c2dd4c1f8c15d50dbed1.jpg?webp=1&dpi=1.5"
+                  alt="Zero"
+                  className="drink-image mb-2"
+                />
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="drink"
+                  value="zero"
+                  checked={formData.drink === "zero"}
+                  onChange={handleChange}
+                />
+                <label className="form-check-label" htmlFor="zero">
+                  Coca Cola Zero
+                </label>
+              </div>
+              <div className="ms-2 d-flex flex-column text-center align-items-center">
+                <img
+                  src="https://pedidosya.dhmedia.io/image/product-information-management/676ebe73137c3d7e14204625.jpg?webp=1&dpi=1.5path/to/fanta-image.jpg"
+                  alt="Fanta"
+                  className="drink-image mb-2"
+                />
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="drink"
+                  value="frute"
+                  checked={formData.drink === "frute"}
+                  onChange={handleChange}
+                />
+                <label className="form-check-label" htmlFor="frute">
+                  Salus Frute
+                </label>
+              </div>
             </div>
           </div>
           <div className="modal-footer">

@@ -3,12 +3,13 @@
 */
 body {
   background-image: url("https://i.postimg.cc/yYXGc311/top-side-view-of-a-pizza-with-a-wood-table-background-more-staff-laying-around-the-pizza-and-more.jpg"); /* Ajusta la ruta si es necesario */
-  background-size: cover;
+  background-size: cover; /* Ajusta según sea necesario */
   background-position: center;
   min-height: 100vh; /* Asegura que el body cubra al menos la altura de la ventana */
-  width: 100%; /* Ajusta según sea necesario */
-  position: relative; /* Asegura que el contenido esté dentro del contenedor */
+  background-repeat: space;
   margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 body::before {

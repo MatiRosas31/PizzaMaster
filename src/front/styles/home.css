@@ -51,18 +51,9 @@
 /* Estilos para el grid layout de las pizzas */
 .pizza-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 2fr));
   gap: 1rem;
   padding: 1rem;
-}
-
-/* Media query para pantallas de teléfonos móviles */
-@media (max-width: 576px) {
-  .pizza-grid {
-    grid-template-columns: repeat(auto-fill, minmax(7rem, 2fr));
-    gap: 1rem;
-    padding: 0.6rem;
-  }
 }
 
 .pizza-card {
@@ -226,4 +217,10 @@
 
 .order-title {
   margin-bottom: 1rem;
+}
+
+.drink-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 6px;
 }
