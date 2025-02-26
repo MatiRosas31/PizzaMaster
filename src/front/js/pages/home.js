@@ -87,8 +87,7 @@ export const Home = () => {
             </button>
             <button
               className="btn btn-success ms-1 btn-wobble fw-bolder"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
+              onClick={() => navigate("/order")}
             >
               Ordenar
             </button>
