@@ -12,6 +12,7 @@ body {
   overflow-x: hidden;
 }
 
+
 body::before {
   content: "";
   position: fixed; /* Cambia a fixed para que cubra toda la página */

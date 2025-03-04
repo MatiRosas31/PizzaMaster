@@ -3,10 +3,21 @@ import { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/order.css"; // Asegúrate de importar el archivo CSS
 import { useNavigate } from "react-router-dom";
-import { Formik } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+
+/*Tareas 
+1) Agregar componentes Field para los radios 
+2) Agregar validaciones para los ingredientes seleccionados
+3) Agregar validaciones para el tamaño de la pizza
+4) Agregar validaciones para la bebida
+5) Que se agregen los selected ingredients al store.PizzaOrder
+6) Agregar tamaño de la pizza y bebida al store.PizzaOrder
+7) En checkout se va a mostrar o la pizza con los ingredientes seleccionados O la(s) pizzas hechas
+8) No hay posibilidad de hacer una orden de una pizza seleccionada con un tamaño y bebida (falta agregar)
+*/
 
 const Order = () => {
-  const { store } = useContext(Context);
+  const { actions, store } = useContext(Context);
   const navigate = useNavigate();
 
   return (
@@ -24,8 +35,38 @@ const Order = () => {
         <div className="card-body pb-1 px-1">
           {/*AQUI COMIENZA EL FORM */}
           <Formik
-            onSubmit={() => {
-              console.log("Formulario enviado");
+            onSubmit={(values, { resetForm }) => {
+              console.log("Aqui estan los datos del formulario", values);
+              resetForm();
+              // actions.setPizzaOrder(values);
+              // navigate("/checkout");
+            }}
+            validate={(values) => {
+              let errors = {};
+
+              if (!values.name) {
+                errors.name = "Por favor ingresa tu nombre";
+              }
+
+              if (!values.address) {
+                errors.address = "Por favor ingresa tu dirección";
+              }
+
+              if (!values.phone) {
+                errors.phone = "Por favor ingresa tu número de teléfono";
+              } else if (!/^\d+$/.test(values.phone)) {
+                errors.phone = "Por favor ingresa un número de teléfono válido";
+              }
+
+              // if (!values.size) {
+              //   errors.size = "Por favor selecciona el tamaño de tu pizza";
+              // }
+
+              // if (!values.drink) {
+              //   errors.drink = "Por favor selecciona una bebida";
+              // }
+
+              return errors;
             }}
             initialValues={{
               name: "",
@@ -35,8 +76,8 @@ const Order = () => {
               drink: "",
             }}
           >
-            {({ values, handleSubmit, handleChange }) => (
-              <form onSubmit={handleSubmit}>
+            {({ errors, touched, values, handleChange, handleBlur }) => (
+              <Form>
                 <div className="mb-3">
                   <label htmlFor="name" className="form-label fw-bolder">
                     Nombre:
@@ -48,7 +89,11 @@ const Order = () => {
                     placeholder="Fulanito de Tal"
                     value={values.name}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                   />
+                  {touched.name && errors.name && (
+                    <p className="text-danger fw-bold">{errors.name}</p>
+                  )}
                 </div>
                 <div className="mb-3">
                   <label htmlFor="address" className="form-label fw-bolder">
@@ -61,7 +106,11 @@ const Order = () => {
                     placeholder="Fake Address 1234"
                     value={values.address}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                   />
+                  {touched.address && errors.address && (
+                    <p className="text-danger fw-bold">{errors.address}</p>
+                  )}
                 </div>
                 <div className="mb-3">
                   <label htmlFor="phone" className="form-label fw-bolder">
@@ -72,7 +121,13 @@ const Order = () => {
                     className="form-control"
                     name="phone"
                     placeholder="099123456"
+                    onBlur={handleBlur}
+                    value={values.phone}
+                    onChange={handleChange}
                   />
+                  {touched.phone && errors.phone && (
+                    <p className="text-danger fw-bold">{errors.phone}</p>
+                  )}
                 </div>
                 <div className="mb-3">
                   <h5 className="fw-bolder"> Ingredientes seleccionados:</h5>
@@ -193,7 +248,7 @@ const Order = () => {
                     Listo
                   </button>
                 </div>
-              </form>
+              </Form>
             )}
           </Formik>
           {/*AQUI TERMINA EL FORM */}

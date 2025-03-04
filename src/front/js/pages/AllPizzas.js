@@ -2,29 +2,28 @@ import pizzas from "../component/pizzas.json";
 import PizzaCard from "../component/PizzaCard";
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
+import "../../styles/allpizzas.css"; // Asegúrate de importar el archivo CSS
 
 const AllPizzas = () => {
   const { store, actions } = useContext(Context);
   return (
-    <div className="all-pizzas-container vh-100">
+    <div className="all-pizzas-container">
       <div className="header-container">
-        <h1 className="text-light fw-bolder">
+        <h1 className="page-title">
           Elegí la pizza que más te guste de nuestro catálogo
         </h1>
       </div>
-      <div className="container">
-        <div className="row">
-          {pizzas.pizzas.map((pizza) => (
-            <div className="col-12 col-md-6 col-lg-4 mb-4" key={pizza.ID}>
-              <PizzaCard
-                title={pizza.title}
-                description={pizza.description}
-                thumbnail={pizza.thumbnail}
-                funcion={() => actions.addToCart(pizza)}
-              />
-            </div>
-          ))}
-        </div>
+      <div className="pizza-grid">
+        {pizzas.pizzas.map((pizza) => (
+          <div className="pizza-card" key={pizza.ID}>
+            <PizzaCard
+              title={pizza.title}
+              description={pizza.description}
+              thumbnail={pizza.thumbnail}
+              funcion={() => actions.addToCart(pizza)}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -20,8 +20,11 @@ export const Home = () => {
   };
 
   /* 
-  Agregar un modal cuando se presiona hacer orden que tira un form para ingresar nombre, dirección y teléfono y datos de la orden
-  
+  Tareas pendientes:
+  1)Agregar una vista mas cuando se presiona hacer orden que tira un form para ingresar nombre, dirección y teléfono y datos de la orden
+  2)En esa vista agregar un boton que llame a una funcion en flux que mande los ingredientes seleccionados o la pizza seleccionada al backend
+  2) Orden de pedidos y conectarlo a supabase
+  3) Agregar un chat de IA que ayude a elegir tu pizza con preguntas interactivas
   */
 
   return (

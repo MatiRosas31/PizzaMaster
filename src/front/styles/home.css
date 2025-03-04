@@ -48,58 +48,7 @@
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-/* Estilos para el grid layout de las pizzas */
-.pizza-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 2fr));
-  gap: 1rem;
-  padding: 1rem;
-}
 
-.pizza-card {
-  width: 100%;
-}
-
-/* Estilos para la página AllPizzas */
-.all-pizzas-container {
-  background-color: rgba(0, 0, 0, 0.8); /* Fondo negro desvanecido */
-  padding: 2rem;
-  border-radius: 10px;
-}
-
-.header-container {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.page-title {
-  color: #ff4500; /* Color naranja para mejor contraste */
-  font-size: 2.5rem; /* Tamaño de fuente más grande */
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto para mejor legibilidad */
-}
-
-.page-subtitle {
-  color: white;
-}
-
-/* Estilos para la tarjeta de pizza */
-.pizza-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.pizza-card .card-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
-
-.pizza-card .btn {
-  align-self: flex-start;
-}
 
 /* Nueva clase personalizada */
 .btn-custom {

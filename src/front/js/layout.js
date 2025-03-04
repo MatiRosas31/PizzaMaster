@@ -10,7 +10,7 @@ import injectContext from "./store/appContext";
 import AllPizzas from "./pages/AllPizzas";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-import Order  from "./pages/order";
+import Order from "./pages/order";
 
 //create your first component
 const Layout = () => {
