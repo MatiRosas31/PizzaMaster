@@ -58,13 +58,18 @@ const Order = () => {
                 errors.phone = "Por favor ingresa un número de teléfono válido";
               }
 
-              // if (!values.size) {
-              //   errors.size = "Por favor selecciona el tamaño de tu pizza";
-              // }
+              if (!values.size) {
+                errors.size = "Por favor selecciona el tamaño de tu pizza";
+              }
 
-              // if (!values.drink) {
-              //   errors.drink = "Por favor selecciona una bebida";
-              // }
+              if (!values.drink) {
+                errors.drink = "Por favor selecciona una bebida";
+              }
+
+              if (store.selectedIngredients.length === 0) {
+                errors.ingredients =
+                  "Por favor selecciona al menos un ingrediente";
+              }
 
               return errors;
             }}
@@ -91,9 +96,12 @@ const Order = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
-                  {touched.name && errors.name && (
-                    <p className="text-danger fw-bold">{errors.name}</p>
-                  )}
+                  <ErrorMessage
+                    name="name"
+                    component={() => (
+                      <p className="text-danger fw-bold">{errors.name}</p>
+                    )}
+                  />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="address" className="form-label fw-bolder">
@@ -108,9 +116,12 @@ const Order = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
-                  {touched.address && errors.address && (
-                    <p className="text-danger fw-bold">{errors.address}</p>
-                  )}
+                  <ErrorMessage
+                    name="address"
+                    component={() => (
+                      <p className="text-danger fw-bold">{errors.address}</p>
+                    )}
+                  />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="phone" className="form-label fw-bolder">
@@ -125,9 +136,12 @@ const Order = () => {
                     value={values.phone}
                     onChange={handleChange}
                   />
-                  {touched.phone && errors.phone && (
-                    <p className="text-danger fw-bold">{errors.phone}</p>
-                  )}
+                  <ErrorMessage
+                    name="phone"
+                    component={() => (
+                      <p className="text-danger fw-bold">{errors.phone}</p>
+                    )}
+                  />
                 </div>
                 <div className="mb-3">
                   <h5 className="fw-bolder"> Ingredientes seleccionados:</h5>
@@ -146,39 +160,45 @@ const Order = () => {
                 </div>
                 <div className="mb-3">
                   <h5 className="fw-bolder">Tamaño de la pizza 📏</h5>
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="radio"
-                      name="size"
-                      value="small"
-                    />
+                  <div className="form-check ">
                     <label className="form-check-label" htmlFor="small">
+                      <Field
+                        className="form-check-input"
+                        name="size"
+                        type="radio"
+                        value="small"
+                      />
                       Pequeña
                     </label>
                   </div>
                   <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="radio"
-                      name="size"
-                      value="medium"
-                    />
                     <label className="form-check-label" htmlFor="medium">
+                      <Field
+                        className="form-check-input"
+                        type="radio"
+                        name="size"
+                        value="medium"
+                      />
                       Mediana
                     </label>
                   </div>
                   <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="radio"
-                      name="size"
-                      value="large"
-                    />
                     <label className="form-check-label" htmlFor="large">
+                      <Field
+                        className="form-check-input"
+                        type="radio"
+                        name="size"
+                        value="large"
+                      />
                       Grande
                     </label>
                   </div>
+                  <ErrorMessage
+                    name="size"
+                    component={() => (
+                      <p className="text-danger fw-bold">{errors.size}</p>
+                    )}
+                  />
                 </div>
                 <div className="mb-3">
                   <h5 className="fw-bolder">¿Qué tal algo para beber? 🥤</h5>
@@ -189,7 +209,7 @@ const Order = () => {
                         alt="Coca Cola"
                         className="drink-image mb-2"
                       />
-                      <input
+                      <Field
                         className="form-check-input"
                         type="radio"
                         name="drink"
@@ -205,7 +225,7 @@ const Order = () => {
                         alt="Zero"
                         className="drink-image mb-2"
                       />
-                      <input
+                      <Field
                         className="form-check-input"
                         type="radio"
                         name="drink"
@@ -221,7 +241,7 @@ const Order = () => {
                         alt="Fanta"
                         className="drink-image mb-2"
                       />
-                      <input
+                      <Field
                         className="form-check-input"
                         type="radio"
                         name="drink"
@@ -233,6 +253,12 @@ const Order = () => {
                     </div>
                   </div>
                 </div>
+                <ErrorMessage
+                  name="drink"
+                  component={() => (
+                    <p className="text-danger fw-bold">{errors.drink}</p>
+                  )}
+                />
                 <div className="card-footer justify-content-end d-flex">
                   <button
                     type="button"
