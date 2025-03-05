@@ -65,7 +65,9 @@ export const Navbar = () => {
                   )}
                 </span>
                 <Link
-                  to="/order"
+                  to={
+                    store.ShoppingCart.length < 1 ? `/allpizzas` : `/checkout`
+                  }
                   className="btn btn-danger ms-1 btn-sm btn-pulse"
                 >
                   Order

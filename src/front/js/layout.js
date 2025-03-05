@@ -11,6 +11,7 @@ import AllPizzas from "./pages/AllPizzas";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import Order from "./pages/order";
+import Checkout from "./pages/checkout";
 
 //create your first component
 const Layout = () => {
@@ -33,6 +34,7 @@ const Layout = () => {
             <Route element={<AllPizzas />} path="/allpizzas" />
             <Route element={<h1>Not found!</h1>} />
             <Route element={<Order />} path="/order" />
+            <Route element={<Checkout />} path="/checkout" />
           </Routes>
           <Footer />
         </ScrollToTop>

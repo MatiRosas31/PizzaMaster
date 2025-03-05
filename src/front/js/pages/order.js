@@ -6,14 +6,10 @@ import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 /*Tareas 
-1) Agregar componentes Field para los radios 
-2) Agregar validaciones para los ingredientes seleccionados
-3) Agregar validaciones para el tamaño de la pizza
-4) Agregar validaciones para la bebida
 5) Que se agregen los selected ingredients al store.PizzaOrder
 6) Agregar tamaño de la pizza y bebida al store.PizzaOrder
-7) En checkout se va a mostrar o la pizza con los ingredientes seleccionados O la(s) pizzas hechas
-8) No hay posibilidad de hacer una orden de una pizza seleccionada con un tamaño y bebida (falta agregar)
+8) No hay posibilidad de hacer una orden de una pizza seleccionada con un tamaño  (falta agregar)
+9) En Allpizzas el contador de cada pizza aparezca al costado del boton "order now"
 */
 
 const Order = () => {
@@ -38,8 +34,8 @@ const Order = () => {
             onSubmit={(values, { resetForm }) => {
               console.log("Aqui estan los datos del formulario", values);
               resetForm();
-              // actions.setPizzaOrder(values);
-              // navigate("/checkout");
+              actions.setPizzaOrder(values);
+              navigate("/checkout");
             }}
             validate={(values) => {
               let errors = {};
@@ -153,8 +149,8 @@ const Order = () => {
                     ))
                   ) : (
                     <span>
-                      <strong>Espera!</strong> No has agregado ningun
-                      ingrediente a tu pizza! 😮
+                      <strong className="text-danger fw-bolder">Espera!</strong>{" "}
+                      No has agregado ningun ingrediente a tu pizza! 😮
                     </span>
                   )}
                 </div>
