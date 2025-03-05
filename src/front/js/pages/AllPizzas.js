@@ -21,6 +21,7 @@ const AllPizzas = () => {
               description={pizza.description}
               thumbnail={pizza.thumbnail}
               funcion={() => actions.addToCart(pizza)}
+              counter={store.ShoppingCart.filter((item) => item[0].ID === pizza.ID).length}
             />
           </div>
         ))}

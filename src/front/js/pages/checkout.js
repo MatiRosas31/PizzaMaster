@@ -9,6 +9,7 @@ const Checkout = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
+  
   return (
     <div
       id="wholeContainerOrder"
