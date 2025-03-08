@@ -25,8 +25,10 @@ const AllPizzas = () => {
               price={pizza.price}
               funcion={() => actions.addToCart(pizza)}
               counter={
-                store.ShoppingCart.filter((item) => item[0].ID === pizza.ID)
-                  .length
+                store.ShoppingCart.map((item) => item[0].ID).includes(pizza.ID)
+                  ? store.ShoppingCart.find((item) => item[0].ID === pizza.ID)
+                      .length
+                  : 0
               }
             />
           </div>

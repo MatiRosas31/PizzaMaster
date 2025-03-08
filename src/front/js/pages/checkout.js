@@ -21,6 +21,7 @@ const Checkout = () => {
             <strong>Entonces, veamos...🤔</strong> Tu orden sería:
           </h1>
         </div>
+        {/* Custom pizza order form: si se han seleccionado ingredientes */}
         {store.selectedIngredients.length > 0 ? (
           <CustomPizzaOrderForm
             StorePizzaOrderName={store.PizzaOrder.name}
@@ -64,6 +65,7 @@ const Checkout = () => {
             </ul>
           </div>
         </div>
+        {/* Drink selection: si no se ha seleccionado ninguna drink */}
         {!store.PizzaOrder.drink ? (
           <>
             <Formik
@@ -147,16 +149,12 @@ const Checkout = () => {
             </Formik>
           </>
         ) : null}
+        {/* Payment aca deberia haber un form con formulario para pagar: addres,phone,etc. y $total (usar function del navbar)*/}
         <div className="card-footer d-flex justify-content-between">
           <button className="btn btn-danger" onClick={() => navigate("/")}>
             Volver
           </button>
-          <button
-            className="btn btn-success"
-            onClick={() => actions.goToPayment()}
-          >
-            Continuar
-          </button>
+          <button className="btn btn-success">Continuar</button>
         </div>
       </div>
     </div>
