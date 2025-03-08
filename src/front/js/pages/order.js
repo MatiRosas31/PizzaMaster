@@ -5,16 +5,12 @@ import "../../styles/order.css"; // Asegúrate de importar el archivo CSS
 import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
-/*Tareas 
-5) Que se agregen los selected ingredients al store.PizzaOrder
-6) Agregar tamaño de la pizza y bebida al store.PizzaOrder
-8) No hay posibilidad de hacer una orden de una pizza seleccionada con un tamaño  (falta agregar)
-9) En Allpizzas el contador de cada pizza aparezca al costado del boton "order now"
-*/
-
 const Order = () => {
   const { actions, store } = useContext(Context);
   const navigate = useNavigate();
+  const [selectedIngredients, setSelectedIngredients] = useState(
+    store.selectedIngredients
+  );
 
   return (
     <div
@@ -32,9 +28,15 @@ const Order = () => {
           {/*AQUI COMIENZA EL FORM */}
           <Formik
             onSubmit={(values, { resetForm }) => {
-              console.log("Aqui estan los datos del formulario", values);
               resetForm();
+
               actions.setPizzaOrder(values);
+              const updatedValues = {
+                ...values,
+                ingredients: selectedIngredients,
+              };
+              actions.setPizzaOrder(updatedValues);
+              console.log("Aqui estan los datos del formulario", updatedValues);
               navigate("/checkout");
             }}
             validate={(values) => {
@@ -62,7 +64,7 @@ const Order = () => {
                 errors.drink = "Por favor selecciona una bebida";
               }
 
-              if (store.selectedIngredients.length === 0) {
+              if (selectedIngredients.length === 0) {
                 errors.ingredients =
                   "Por favor selecciona al menos un ingrediente";
               }
@@ -141,8 +143,8 @@ const Order = () => {
                 </div>
                 <div className="mb-3">
                   <h5 className="fw-bolder"> Ingredientes seleccionados:</h5>
-                  {store.selectedIngredients.length > 0 ? (
-                    store.selectedIngredients.map((ingredient, index) => (
+                  {selectedIngredients.length > 0 ? (
+                    selectedIngredients.map((ingredient, index) => (
                       <span key={index} className="badge orangebtn me-2 mb-2">
                         {ingredient}
                       </span>

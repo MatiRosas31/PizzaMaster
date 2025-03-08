@@ -24,6 +24,17 @@
   color: white;
 }
 
+.custombadge {
+  display: inline-block;
+  padding: 0.35em 0.65em;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+}
+
 .search-container-width-40 {
   width: 40%; /* Ajusta el ancho según sea necesario */
 }
@@ -47,8 +58,6 @@
 .white-bg-color-opacity-faded {
   background-color: rgba(255, 255, 255, 0.8);
 }
-
-
 
 /* Nueva clase personalizada */
 .btn-custom {

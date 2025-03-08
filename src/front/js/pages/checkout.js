@@ -4,12 +4,12 @@ import { Context } from "../store/appContext";
 import "../../styles/order.css"; // Asegúrate de importar el archivo CSS
 import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import CustomPizzaOrderForm from "../component/customPizzaOrderForm";
 
 const Checkout = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
-  
   return (
     <div
       id="wholeContainerOrder"
@@ -22,60 +22,15 @@ const Checkout = () => {
           </h1>
         </div>
         {store.selectedIngredients.length > 0 ? (
-          <>
-            <div className="card-body pb-1 px-1">
-              <div className="card-text">
-                <ul className="list-group">
-                  <li className="list-group-item d-flex justify-content-between align-items-center">
-                    <span className="fw-bold">Tu nombre:</span>{" "}
-                    {store.PizzaOrder.name
-                      ? store.PizzaOrder.name
-                      : "Cargando..."}
-                  </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center">
-                    <span className="fw-bold">Enviaremos tu pizza a... :</span>{" "}
-                    {store.PizzaOrder.address
-                      ? store.PizzaOrder.address
-                      : "Cargando..."}
-                  </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center">
-                    <span className="fw-bold">
-                      Te contactaremos cuando este lista a tu numero... :
-                    </span>{" "}
-                    {store.PizzaOrder.phone
-                      ? store.PizzaOrder.phone
-                      : "Cargando..."}
-                  </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center">
-                    <span className="fw-bold">Tamaño de la pizza:</span>{" "}
-                    {store.PizzaOrder.size
-                      ? store.PizzaOrder.size
-                      : "Cargando..."}
-                  </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center">
-                    <span className="fw-bold">Ingredientes:</span>{" "}
-                    {store.selectedIngredients.map((ingredient, index) => (
-                      <span key={index} className="badge bg-dark me-1">
-                        {ingredient}
-                        <button
-                          className="btn-close text-light ms-1"
-                          onClick={() => actions.removeIngredient(ingredient)}
-                        >
-                          X
-                        </button>
-                      </span>
-                    )) || "Cargando..."}
-                  </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center">
-                    <span className="fw-bold">Precio:</span>{" "}
-                    {store.PizzaOrder.price
-                      ? `$${store.PizzaOrder.price}`
-                      : "Cargando..."}
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </>
+          <CustomPizzaOrderForm
+            StorePizzaOrderName={store.PizzaOrder.name}
+            StorePizzaOrderAddress={store.PizzaOrder.address}
+            StorePizzaOrderPhone={store.PizzaOrder.phone}
+            StorePizzaOrderSize={store.PizzaOrder.size}
+            StoreSelectedIngredientes={store.PizzaOrder.ingredients}
+            RemoveIngredientsFunction={actions.removeIngredient}
+            StorePizzaOrderPrize={store.selectedIngredients.length > 3 ? 10 : 7}
+          />
         ) : null}
         <div className="card-body pb-1 px-1">
           <div className="card-text">

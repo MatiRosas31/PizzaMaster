@@ -6,6 +6,7 @@ import "../../styles/allpizzas.css"; // Asegúrate de importar el archivo CSS
 
 const AllPizzas = () => {
   const { store, actions } = useContext(Context);
+
   return (
     <div className="all-pizzas-container">
       <div className="header-container">
@@ -20,8 +21,13 @@ const AllPizzas = () => {
               title={pizza.title}
               description={pizza.description}
               thumbnail={pizza.thumbnail}
+              ingredients={pizza.ingredients}
+              price={pizza.price}
               funcion={() => actions.addToCart(pizza)}
-              counter={store.ShoppingCart.filter((item) => item[0].ID === pizza.ID).length}
+              counter={
+                store.ShoppingCart.filter((item) => item[0].ID === pizza.ID)
+                  .length
+              }
             />
           </div>
         ))}

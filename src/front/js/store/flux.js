@@ -66,8 +66,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ ShoppingCart: ShoppingCart });
       },
       setPizzaOrder: (order) => {
-        setStore({ PizzaOrder: order });
-      }
+        setStore({ PizzaOrder: order,});
+      },
     },
   };
 };
