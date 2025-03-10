@@ -8,7 +8,10 @@
 
   */
 /*Tareas 
-5) Que se agregen los selected ingredients al store.PizzaOrder
-6) Agregar tamaño de la pizza y bebida al store.PizzaOrder
+5) Que se agregen los selected ingredients al store.PizzaOrder [COMPLETADO]
+6) Agregar tamaño de la pizza 
+7) Agregar bebida al store.PizzaOrder [COMPLETADO]
 8) No hay posibilidad de hacer una orden de una pizza seleccionada con un tamaño  (falta agregar)
+9) Agregar a PizzaOrder el ShoppingCartPriceTotal
+10) Hacer que ShoppingCartPriceTotalCalc agregue el StorePizzaOrderPrize
 */

@@ -4,6 +4,7 @@ const CustomPizzaOrderForm = ({
   StorePizzaOrderAddress,
   StorePizzaOrderPhone,
   StorePizzaOrderSize,
+  StorePizzaOrderDrink,
   StoreSelectedIngredientes,
   RemoveIngredientsFunction,
   StorePizzaOrderPrize,
@@ -17,7 +18,7 @@ const CustomPizzaOrderForm = ({
             {StorePizzaOrderName ? StorePizzaOrderName : "Cargando..."}
           </li>
           <li className="list-group-item d-flex justify-content-between align-items-center">
-            <span className="fw-bold">Enviaremos tu pizza a... :</span>{" "}
+            <span className="fw-bold">Enviaremos tu pizza a :</span>{" "}
             {StorePizzaOrderAddress ? StorePizzaOrderAddress : "Cargando..."}
           </li>
           <li className="list-group-item d-flex justify-content-between align-items-center">
@@ -30,11 +31,15 @@ const CustomPizzaOrderForm = ({
             <span className="fw-bold">Tamaño de la pizza:</span>{" "}
             {StorePizzaOrderSize ? StorePizzaOrderSize : "Cargando..."}
           </li>
+          <li className="list-group-item d-flex justify-content-between align-items-center">
+            <span className="fw-bold">Bebida:</span>{" "}
+            {StorePizzaOrderDrink ? StorePizzaOrderDrink : "Cargando..."}
+          </li>
           <li className="list-group-item  justify-content-between align-items-center">
             <span className="fw-bold">Ingredientes:</span>{" "}
             {StoreSelectedIngredientes && StoreSelectedIngredientes.length > 0
               ? StoreSelectedIngredientes.map((ingredient, index) => (
-                  <span key={index} className="badge bg-dark me-1">
+                  <span key={index} className="badge bg-dark me-1 mt-1">
                     {ingredient}
                     <button
                       className="btn-close text-light ms-1"

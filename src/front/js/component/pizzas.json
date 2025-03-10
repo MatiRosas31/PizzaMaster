@@ -6,7 +6,8 @@
       "description": "Delicious pepperoni pizza with extra cheese.",
       "thumbnail": "https://i.postimg.cc/pd8YkFSf/Pepperoni-Pizza.jpg",
       "price": 12.99,
-      "ingredients": ["Pepperoni", "Queso extra", "Tomate"]
+      "ingredients": ["Pepperoni", "Queso extra", "Tomate"],
+      "quantity": 0
     },
     {
       "ID": 2,
@@ -14,7 +15,8 @@
       "description": "A classic Hawaiian pizza with ham and pineapple.",
       "thumbnail": "https://i.postimg.cc/zfsLt2hv/Hawaiian-Pizza-1.jpg",
       "price": 11.99,
-      "ingredients": ["Jamón", "Piña", "Queso extra"]
+      "ingredients": ["Jamón", "Piña", "Queso extra"],
+      "quantity": 0
     },
     {
       "ID": 3,
@@ -29,7 +31,8 @@
         "Cebolla",
         "Tomate",
         "Espinaca"
-      ]
+      ],
+      "quantity": 0
     },
     {
       "ID": 4,
@@ -43,7 +46,8 @@
         "Pollo",
         "Carne molida",
         "Queso extra"
-      ]
+      ],
+      "quantity": 0
     },
     {
       "ID": 5,
@@ -51,7 +55,8 @@
       "description": "A unique pizza with a mix of seafood ingredients.",
       "thumbnail": "https://i.postimg.cc/VvwLCdrL/Seafood-Pizza.jpg",
       "price": 15.99,
-      "ingredients": ["Atún", "Aceitunas", "Tomate", "Queso extra"]
+      "ingredients": ["Atún", "Aceitunas", "Tomate", "Queso extra"],
+      "quantity": 0
     },
     {
       "ID": 6,
@@ -65,7 +70,8 @@
         "Cebolla",
         "Tomate",
         "Queso extra"
-      ]
+      ],
+      "quantity": 0
     }
   ]
 }

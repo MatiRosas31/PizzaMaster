@@ -36,14 +36,14 @@ export const Navbar = () => {
                     key={index}
                     className="dropdown-item d-flex justify-content-between"
                   >
-                    <span className="fw-bold mt-2">{item[0].title}</span>
+                    <span className="fw-bold mt-2">{item.title}</span>
                     <div>
                       <button className="btn btn-dark mx-1 fw-bolder">
-                        x{item.length}
+                        x{item.quantity}
                       </button>
                       <button
                         className="btn btn-outline-danger"
-                        onClick={() => actions.removeFromCart(item[0].ID)}
+                        onClick={() => actions.removeFromCart(item.ID)}
                       >
                         X
                       </button>
@@ -60,7 +60,7 @@ export const Navbar = () => {
                 <span className="fw-bold">
                   Total: $
                   {store.ShoppingCart.reduce(
-                    (acc, item) => acc + item[0].price * item.length,
+                    (acc, item) => acc + item.price * item.quantity,
                     0
                   )}
                 </span>

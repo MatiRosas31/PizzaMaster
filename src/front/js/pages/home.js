@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import SearchResults from "../component/SearchResults";
-import OrderModal from "../component/OrderModal";
 import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
@@ -97,9 +96,6 @@ export const Home = () => {
           </div>
         </div>
       </div>
-
-      {/* Modal */}
-      <OrderModal />
     </div>
   );
 };

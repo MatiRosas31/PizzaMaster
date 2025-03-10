@@ -26,6 +26,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       ShoppingCart: [],
       message: null,
       PizzaOrder: {},
+      ShoppingCartPriceTotal: 0,
     },
     actions: {
       addIngredient: (ingredient) => {
@@ -50,23 +51,38 @@ const getState = ({ getStore, getActions, setStore }) => {
       addToCart: (pizza) => {
         const store = getStore();
         const ShoppingCart = [...store.ShoppingCart];
-        const found = ShoppingCart.find((item) => item[0].ID === pizza.ID);
+        const found = ShoppingCart.find((item) => item.ID === pizza.ID);
         if (found) {
-          found.push(pizza);
+          found.quantity += 1;
         } else {
-          ShoppingCart.push([pizza]);
+          ShoppingCart.push({ ...pizza, quantity: 1 });
         }
         setStore({ ShoppingCart: ShoppingCart });
+      },
+      ShoppingCartPriceTotalCalc: () => {
+        const store = getStore();
+        const ShoppingCart = store.ShoppingCart;
+        const total = ShoppingCart.reduce(
+          (acc, item) => acc + item.price * item.quantity,
+          0
+        );
+        setStore({ ShoppingCartPriceTotal: total });
       },
       removeFromCart: (pizzaID) => {
         const store = getStore();
         const ShoppingCart = store.ShoppingCart.filter(
-          (item) => item[0].ID !== pizzaID
+          (item) => item.ID !== pizzaID
         );
         setStore({ ShoppingCart: ShoppingCart });
       },
+      addDrink: (drink) => {
+        const store = getStore();
+        const PizzaOrder = store.PizzaOrder;
+        PizzaOrder.drink = drink;
+        setStore({ PizzaOrder: PizzaOrder });
+      },
       setPizzaOrder: (order) => {
-        setStore({ PizzaOrder: order,});
+        setStore({ PizzaOrder: order});
       },
     },
   };
